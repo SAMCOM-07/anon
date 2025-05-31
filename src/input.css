@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme{
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+
+  --color-lightGray: hsl(0, 0%, 70%);
+  --color-silver: hsl(0, 0%, 47%);
+  --color-smallLightBlack: hsl(0, 0%, 13%);
+  --color-pink: hsl(353, 100%, 78%);
+  --color-brown: hsl(29, 90%, 65%);
+  --color-tomatoRed: hsl(0, 100%, 70%);
+  --color-green: hsla(152, 51.00%, 52.00%, 0.10);
+  --color-gray: hsl(0, 0%, 33%);
+  --color-veryLightGray: hsl(0, 0%, 93%);
+  --color-darkGray: hsl(0, 0%, 15%);
+}
+
+:root{
+  font-family: 'Poppins';
+  -webkit-font-feature-settings: inherit;
+}
+
+a{
+  cursor: pointer;
+}
+
+.scroller{
+  scroll-behavior: auto;
+  scroll-snap-type: mandatory;
+  padding-bottom: 7px;
+  /* animation: scale 0.5s;
+  transition: scale 0.5s ease-in-out; */
+}
+
+/* @keyframes scale{
+  from{
+    scale: 0.75;
+    opacity: 0.3;
+  }
+  to{
+    scale: 1;
+    opacity: 1;
+  }
+} */
+
+/* .scroller:hover::-webkit-scrollbar{
+    height: 7px;
+} */
+
+.scroller::-webkit-scrollbar {
+  height: 7px;
+  background: #f3f3f3;
+  transition: height 0.5s ease-in-out;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+  background: #ebe6e8fb;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.scroller::-webkit-scrollbar-thumb:hover {
+  background: #cecbcd;
+}
+
+.scroller::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+h2, h3, h4, h5{
+  max-width: calc(100% - 5rem); 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.show{
+  transition: opacity, scale 0.3s ease;
+}
+
+.imgs:hover .show{
+  opacity: 0.8;
+  scale: 1.15;
+}
+
+.imgs:hover .hide{
+  opacity: 0;
+}
+
+.nav-links > ul > li{
+  position: relative;
+  /* transition: color 0.3s ease-in-out; */
+}
+
+.nav-links > ul > li:hover::after{
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: hsl(353, 100%, 78%);
+  animation: border 0.3s;
+}
+
+footer h1::after{
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -7px;
+  width: 60px;
+  height: 1px;
+  background-color: hsl(353, 100%, 78%);
+}
+
+@keyframes border {
+  from{
+    width: 0%;
+  }
+  to{
+    width: 100%;
+  }
+}
